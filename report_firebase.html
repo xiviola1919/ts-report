@@ -526,16 +526,16 @@ function calc(){
     const p=(a/t*100).toFixed(1);
     const d=Math.round(a-t),da=Math.abs(d);
     sv('f_achieve_pct',p+'%');
-    sv('f_achieve_diff',d>=0?`▲ ${Math.round(da/1000)}억 초과`:`▼ ${Math.round(da/1000)}억 미달`);
+    sv('f_achieve_diff',d>=0?`▲ ${(da/100).toFixed(1)}억 초과`:`▼ ${(da/100).toFixed(1)}억 미달`);
   }else{sv('f_achieve_pct','');sv('f_achieve_diff','');}
   if(pv&&a){
     const y=((a-pv)/pv*100).toFixed(1),yd=Math.round(a-pv);
     sv('f_yoy_pct',y+'%');
-    sv('f_yoy_diff',yd>=0?`▲ ${Math.round(Math.abs(yd)/1000)}억 증가`:`▼ ${Math.round(Math.abs(yd)/1000)}억 감소`);
-    sv('f_prev_actual',`전년실적 ${Math.round(pv/1000)}억 대비`);
+    sv('f_yoy_diff',yd>=0?`▲ ${(Math.abs(yd)/100).toFixed(1)}억 증가`:`▼ ${(Math.abs(yd)/100).toFixed(1)}억 감소`);
+    sv('f_prev_actual',`전년실적 ${(pv/100).toFixed(1)}억 대비`);
   }else{sv('f_yoy_pct','');sv('f_yoy_diff','');sv('f_prev_actual','');}
 }
-function f억(v){const n=Math.abs(Math.round(v));return Math.round(n/1000)+'억';}
+function f억(v){const n=Math.abs(Math.round(v));return (n/100).toFixed(1)+'억';}
 
 // ── 렌더
 function g(id){return document.getElementById(id)||{};}
